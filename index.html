@@ -239,6 +239,7 @@
     const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
     // ---- Tabs (hash-based, CV first so QR scans land on it) ----
+    let reposLoaded = false;  // declared before show() runs, which may call loadRepos()
     const tabs = [...document.querySelectorAll("section[data-tab]")];
     function show() {
       const id = location.hash.slice(1);
@@ -315,7 +316,6 @@
     document.head.appendChild(ps);
 
     // ---- Public repositories (live from the GitHub API) ----
-    let reposLoaded = false;
     async function loadRepos() {
       if (reposLoaded) return; reposLoaded = true;
       const box = document.getElementById("repos");
