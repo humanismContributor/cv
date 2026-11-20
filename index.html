@@ -64,6 +64,34 @@
     .pages { display: grid; gap: 12px; margin-top: 12px; }
     .pages img { width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--line); background: #fff; }
 
+    /* Project cards: same design as humanismcontributor.github.io */
+    .project { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 28px; margin-bottom: 24px; }
+    .project h4 { font-family: Fraunces, Georgia, serif; font-weight: 600; letter-spacing: -0.01em; font-size: 1.6rem; margin: 0 0 4px; }
+    .project .tagline { color: var(--accent); font-weight: 500; margin: 0 0 16px; }
+    .project ul { padding-left: 1.2em; margin: 16px 0; }
+    .project li { margin-bottom: 8px; }
+    .project .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; padding: 0; list-style: none; }
+    .project .chips li { background: var(--chip); border-radius: 999px; padding: 3px 12px; font-size: .85rem; margin: 0; }
+    .project .plinks { display: flex; flex-wrap: wrap; gap: 12px; }
+    .project .plinks a { display: inline-block; padding: 9px 18px; border-radius: 8px; font-weight: 600; font-size: .95rem;
+                         text-decoration: none; border: 1px solid var(--accent); color: var(--accent); }
+    .project .plinks a:first-child { background: var(--accent); color: var(--bg); }
+    .project .plinks a:hover { opacity: .85; }
+    .video { position: relative; aspect-ratio: 16 / 9; margin: 20px 0; border-radius: 10px; overflow: hidden; background: #000; }
+    .video iframe, .video button { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .video button { padding: 0; cursor: pointer; background: #000 center / cover no-repeat; }
+    .video button::after {
+      content: ""; position: absolute; left: 50%; top: 50%; width: 68px; height: 48px;
+      transform: translate(-50%, -50%); border-radius: 12px; background: rgba(0, 0, 0, .75)
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z' fill='white'/%3E%3C/svg%3E") center / 28px no-repeat;
+    }
+    .video button:hover::after { background-color: #c00; }
+    .gallery { display: flex; gap: 12px; overflow-x: auto; margin: 20px 0; padding-bottom: 6px; scroll-snap-type: x mandatory; }
+    .gallery a { flex: 0 0 auto; scroll-snap-align: start; }
+    .gallery img { display: block; height: 220px; width: auto; border-radius: 8px; border: 1px solid var(--line); background: #fff; }
+    .project .note { margin: 20px 0 0; padding: 12px 14px; border-radius: 8px; background: var(--accent-soft); color: var(--muted); font-size: .9rem; }
+    @media (max-width: 520px) { .project { padding: 20px; } .gallery img { height: 170px; } }
+
     .contact { list-style: none; padding: 0; margin: 0; }
     .contact li { padding: 12px 0; border-bottom: 1px solid var(--line); display: flex; gap: 12px; flex-wrap: wrap; }
     .contact b { min-width: 90px; }
@@ -171,7 +199,7 @@
           <a class="btn" href="https://humanismcontributor.github.io/" target="_blank" rel="noopener">Portfolio website</a>
         </div>
         <h3>Featured projects</h3>
-        <div id="featured"></div>
+        <div id="featured"><p class="meta">Loading…</p></div>
         <h3>Public repositories</h3>
         <div id="repos"><p class="meta">Loading…</p></div>
       </section>
@@ -248,22 +276,43 @@
     }).join("");
 
     // ---- Featured projects ----
-    const FEATURED = [
-      { name: "Xylella Watch", stack: "Python · Streamlit · GitHub Actions · Claude API",
-        text: "Flags olive-grove decline in Sentinel-2 imagery across 7 Mediterranean regions alongside official outbreak records, refreshed by automated weekly pipelines. Validated against about 1.5 million field samples, with results reported openly: strong detection in some areas, weak in others.",
-        links: { "Live app": "https://xylella-tracker.streamlit.app/", "Code": `${GH}/Xylella-Fastidiosa-tracker` } },
-      { name: "AI Adoption Analysis", stack: "R · tidyverse · ggplot2",
-        text: "145,000 records across 10 countries and 8 industries, with visual dashboards; showed the dataset was synthetic from its uniform distributions.",
-        links: { "Video": "https://youtu.be/SHCFpWCBgis", "R script": `${GH}/humanismContributor.github.io/blob/main/projects/ai-adoption/analysis.R`, "Charts": "https://humanismcontributor.github.io/" } },
-      { name: "Hotel Guest Analytics", stack: "Python · seaborn",
-        text: "Built for Stanford's Code in Place (2021): segments hotel guests by revenue value per canton and exports KPI reports, charts and an interactive guest lookup.",
-        links: { "Video": "https://www.youtube.com/watch?v=Ev7-rtgOqd0", "Code": `${GH}/humanismContributor.github.io/blob/main/projects/hotel-guests/project.py` } },
-    ];
-    document.getElementById("featured").innerHTML = FEATURED.map(p => `<div class="card">
-      <b>${esc(p.name)}</b><div class="meta">${esc(p.stack)}</div>
-      <p>${esc(p.text)}</p>
-      <div class="links">${Object.entries(p.links).map(([l, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(l)} ↗</a>`).join("")}</div>
-    </div>`).join("");
+    // Uses the same projects.js as the portfolio site, so new projects appear here automatically.
+    const PORTFOLIO = "https://humanismcontributor.github.io/";
+    function renderProjects() {
+      const box = document.getElementById("featured");
+      if (!Array.isArray(window.PROJECTS)) {
+        box.innerHTML = `<p class="meta">Couldn't load the projects right now. See them on the <a href="${PORTFOLIO}">portfolio website</a>.</p>`;
+        return;
+      }
+      const abs = u => new URL(u, PORTFOLIO).href;  // image paths in projects.js are relative to the portfolio
+      box.innerHTML = window.PROJECTS.map(p => `
+        <article class="project">
+          <h4>${esc(p.title)}</h4>
+          <p class="tagline">${esc(p.tagline)}</p>
+          <p>${esc(p.summary)}</p>
+          ${p.youtube ? `<div class="video"><button type="button" data-yt="${esc(p.youtube)}" data-title="${esc(p.title)}" aria-label="Play the ${esc(p.title)} presentation" style="background-image:url('https://i.ytimg.com/vi/${esc(p.youtube)}/hqdefault.jpg')"></button></div>` : ""}
+          <ul>${(p.highlights || []).map(h => `<li>${esc(h)}</li>`).join("")}</ul>
+          ${p.images ? `<div class="gallery">${p.images.map(i => `<a href="${esc(abs(i.src))}" target="_blank" rel="noopener"><img src="${esc(abs(i.src))}" alt="${esc(i.alt)}" loading="lazy"></a>`).join("")}</div>` : ""}
+          <ul class="chips">${(p.stack || []).map(s => `<li>${esc(s)}</li>`).join("")}</ul>
+          <div class="plinks">${(p.links || []).map(l => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join("")}</div>
+          ${p.note ? `<p class="note">${esc(p.note)}</p>` : ""}
+        </article>`).join("");
+
+      // Load the YouTube player only when someone presses play
+      box.querySelectorAll(".video button").forEach(b => b.addEventListener("click", () => {
+        const f = document.createElement("iframe");
+        f.src = `https://www.youtube.com/embed/${b.dataset.yt}?autoplay=1`;
+        f.title = `${b.dataset.title} presentation`;
+        f.allow = "autoplay; encrypted-media; picture-in-picture";
+        f.referrerPolicy = "strict-origin-when-cross-origin";
+        f.allowFullscreen = true;
+        b.replaceWith(f);
+      }));
+    }
+    const ps = document.createElement("script");
+    ps.src = PORTFOLIO + "projects.js";
+    ps.onload = ps.onerror = renderProjects;
+    document.head.appendChild(ps);
 
     // ---- Public repositories (live from the GitHub API) ----
     let reposLoaded = false;
