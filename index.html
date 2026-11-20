@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Faiz Pitsuwan-Meier · CV</title>
+  <meta name="description" content="CV of Faiz Pitsuwan-Meier: International Business Administration student specialising in Applied Data Science, Bern.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%84%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f5ef; --surface: #ffffff; --text: #1d2420; --muted: #5c665f;
+      --line: #e3e0d6; --accent: #4d6b3c; --accent-soft: #e8eedf; --chip: #f0eee6;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #141814; --surface: #1c211c; --text: #e8ebe5; --muted: #a0aa9f;
+        --line: #2e352e; --accent: #a9c98f; --accent-soft: #263022; --chip: #252b25;
+      }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 Inter, system-ui, sans-serif; }
+    a { color: var(--accent); }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+    header { padding: 56px 0 8px; }
+    h1, h2, h3 { font-family: Fraunces, Georgia, serif; font-weight: 600; letter-spacing: -0.01em; }
+    h1 { font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.15; margin: 0 0 8px; }
+    .headline { color: var(--muted); font-size: 1.05rem; margin: 0; }
+
+    nav { position: sticky; top: 0; z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line);
+          margin: 24px 0 8px; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+    nav::-webkit-scrollbar { display: none; }
+    nav a { flex: 0 0 auto; padding: 12px 14px; text-decoration: none; color: var(--muted); font-weight: 500;
+            border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; }
+    nav a[aria-current="page"] { color: var(--text); border-bottom-color: var(--accent); }
+    nav a:hover { color: var(--text); }
+
+    section[data-tab] { display: none; padding-bottom: 24px; }
+    section[data-tab].active { display: block; }
+    h2 { font-size: 1.45rem; margin: 36px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+    h3 { font-size: 1.1rem; margin: 28px 0 12px; color: var(--muted); }
+
+    .role { margin-bottom: 22px; }
+    .row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0 16px; }
+    .row b { font-size: 1.03rem; }
+    .meta { color: var(--muted); font-size: .92rem; }
+    .role ul, .plain { padding-left: 1.2em; margin: 8px 0 0; }
+    .role li, .plain li { margin-bottom: 6px; }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border-radius: 8px;
+           font-weight: 600; font-size: .95rem; text-decoration: none; border: 1px solid var(--accent);
+           color: var(--accent); background: transparent; cursor: pointer; font-family: inherit; }
+    .btn.primary { background: var(--accent); color: var(--bg); }
+    .btn:hover { opacity: .85; }
+    .btns { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 4px; }
+
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; margin-bottom: 16px; }
+    .card p { margin: 6px 0; }
+    .card .links { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px 16px; }
+    details { margin-top: 10px; }
+    summary { cursor: pointer; color: var(--accent); font-weight: 500; }
+    .pages { display: grid; gap: 12px; margin-top: 12px; }
+    .pages img { width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--line); background: #fff; }
+
+    .contact { list-style: none; padding: 0; margin: 0; }
+    .contact li { padding: 12px 0; border-bottom: 1px solid var(--line); display: flex; gap: 12px; flex-wrap: wrap; }
+    .contact b { min-width: 90px; }
+    .qr { text-align: center; }
+    .qr img { width: min(320px, 100%); height: auto; border-radius: 12px; background: #fff; padding: 6px; }
+    footer { color: var(--muted); font-size: .85rem; padding: 32px 0 56px; border-top: 1px solid var(--line); margin-top: 24px; }
+    @media print { nav, .btns, footer, section[data-tab]:not([data-tab="cv"]) { display: none !important; }
+                   section[data-tab="cv"] { display: block !important; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Faiz Pitsuwan-Meier</h1>
+      <p class="headline">Int. Business Administration student · Applied Data Science · Bern, Switzerland</p>
+    </header>
+
+    <nav aria-label="Sections">
+      <a href="#cv">📄 CV</a>
+      <a href="#certificates">🎓 Certificates</a>
+      <a href="#portfolio">💻 GitHub Portfolio</a>
+      <a href="#contact">✉️ Contact</a>
+      <a href="#qr">🔳 QR Code</a>
+    </nav>
+
+    <main>
+      <!-- CV -->
+      <section data-tab="cv">
+        <div class="btns">
+          <a class="btn primary" href="assets/CV_Faiz_Pitsuwan-Meier.pdf" download>⬇ Download CV (PDF)</a>
+        </div>
+
+        <h2>Education</h2>
+        <div class="role">
+          <div class="row"><b>Bern University of Applied Sciences – School of Business</b><span class="meta">Bern, Switzerland</span></div>
+          <div class="row"><span>BSc International Business Administration – Specialization Applied Data Science</span><span class="meta">Graduation: Feb 2028</span></div>
+          <ul>
+            <li><b>Relevant coursework:</b> Financial Management, Accounting, Business Analytics, Mathematics, Environment of the International Firm, Economics, Business IT, Intercultural Competence</li>
+            <li><b>Activities:</b> International Family Mentor</li>
+          </ul>
+        </div>
+        <div class="role">
+          <div class="row"><b>EHL Swiss School of Tourism and Hospitality</b><span class="meta">Passugg, Graubünden</span></div>
+          <div class="row"><span>Dipl. Hotelier-Gastronom HF, Professional Bachelor</span><span class="meta">Graduation: Jun 2024</span></div>
+          <ul>
+            <li><b>GPA:</b> 5.34 / 6.0</li>
+            <li><b>Activities:</b> Student Council representative, Pop-up Restaurant logistics lead</li>
+          </ul>
+        </div>
+
+        <h2>Professional Experience</h2>
+        <div class="role">
+          <div class="row"><b>Kempinski Palace Engelberg</b><span class="meta">Engelberg, Obwalden</span></div>
+          <div class="row"><span>Front Office Agent (full-time)</span><span class="meta">Aug 2024 – Jul 2025</span></div>
+          <ul>
+            <li><b>Upselling &amp; sales:</b> Targeted upselling averaging about CHF 1,000 per month, peaking at CHF 5,000 in a single month.</li>
+            <li><b>Financial data &amp; reconciliation:</b> Daily invoice audits, billing controls and end-of-shift register reconciliations with high accuracy.</li>
+            <li><b>Shift management &amp; operations:</b> Independently managed operational shifts, executing standardized daily workflows and tracking operational discrepancies.</li>
+            <li><b>International partner &amp; client relations:</b> Daily communication with diverse international stakeholders, issue resolution and cross-departmental coordination.</li>
+          </ul>
+        </div>
+
+        <h2>Achievements</h2>
+        <div class="role">
+          <div class="row"><b>Swiss Armed Forces</b><span class="meta">Fribourg, Switzerland</span></div>
+          <div class="row"><span>Sergeant / Platoon Sergeant</span><span class="meta">Jun 2022 – Nov 2022</span></div>
+          <ul>
+            <li><b>Personnel leadership:</b> Led, trained and mentored a platoon of 35 soldiers from diverse backgrounds, regularly serving as the platoon leader's deputy during 19 weeks of intensive service.</li>
+            <li><b>Operational execution &amp; planning:</b> Managed daily logistics, schedules and training workflows in high-stress, 24/7 environments.</li>
+            <li><b>Crisis &amp; conflict resolution:</b> Communicated directives from senior leadership and proactively resolved squad- and platoon-level conflicts.</li>
+          </ul>
+        </div>
+
+        <h2>Data Analytics &amp; Data Science Projects</h2>
+        <div class="role">
+          <div class="row"><b>Independent and academic projects</b><span class="meta">Bern, Switzerland</span></div>
+          <div class="row"><span>Portfolio: <a href="https://humanismcontributor.github.io/">humanismcontributor.github.io</a></span><span class="meta">Jun 2021 – Present</span></div>
+          <ul>
+            <li><b>Xylella Watch</b> (Python, Streamlit, GitHub Actions, Claude API): Built and maintain a live web app that flags olive-grove decline in Sentinel-2 imagery across 7 Mediterranean regions alongside official outbreak records, updated by automated weekly data pipelines. Validated it against about 1.5 million field samples and 154 alternative rules, and reported openly where detection works and where it doesn't.</li>
+            <li><b>AI Adoption Analysis</b> (R, tidyverse, ggplot2): Analysed 145,000 records across 10 countries and 8 industries, built visual dashboards, and identified the data as synthetic from its uniform distributions.</li>
+            <li><b>Hotel Guest Analytics</b> (Python, seaborn): Program for Stanford's Code in Place that segments hotel guests by revenue value per canton and exports KPI reports, charts and an interactive guest lookup.</li>
+          </ul>
+        </div>
+
+        <h2>Skills &amp; Interests</h2>
+        <ul class="plain">
+          <li><b>Languages:</b> English (native), French (professional), German (professional), Thai (fluent)</li>
+          <li><b>IT skills:</b> Python (pandas, NumPy, Streamlit, pytest), R (tidyverse, ggplot2), Git and GitHub Actions, Tableau, Microsoft Excel and Access (advanced)</li>
+          <li><b>Interests:</b> Mediterranean and SE Asian cuisine, trail running, weightlifting, classic literature, playing the guitar</li>
+        </ul>
+      </section>
+
+      <!-- Certificates -->
+      <section data-tab="certificates">
+        <h2>Certificates &amp; References</h2>
+        <p class="meta">Personal details such as date of birth, place of origin and registration numbers are redacted.</p>
+        <div id="certs"></div>
+      </section>
+
+      <!-- Portfolio -->
+      <section data-tab="portfolio">
+        <h2>GitHub Portfolio</h2>
+        <div class="btns">
+          <a class="btn primary" href="https://github.com/humanismContributor" target="_blank" rel="noopener">GitHub profile</a>
+          <a class="btn" href="https://humanismcontributor.github.io/" target="_blank" rel="noopener">Portfolio website</a>
+        </div>
+        <h3>Featured projects</h3>
+        <div id="featured"></div>
+        <h3>Public repositories</h3>
+        <div id="repos"><p class="meta">Loading…</p></div>
+      </section>
+
+      <!-- Contact -->
+      <section data-tab="contact">
+        <h2>Contact</h2>
+        <ul class="contact">
+          <li><b>Email</b><a href="mailto:faiz.pitsuwan-meier@students.bfh.ch">faiz.pitsuwan-meier@students.bfh.ch</a></li>
+          <li><b>LinkedIn</b><a href="https://www.linkedin.com/in/faiz-p-894b5012a" target="_blank" rel="noopener">faiz-p-894b5012a</a></li>
+          <li><b>GitHub</b><a href="https://github.com/humanismContributor" target="_blank" rel="noopener">humanismContributor</a></li>
+          <li><b>Location</b><span>Bern, Switzerland</span></li>
+        </ul>
+        <div class="btns">
+          <a class="btn primary" href="assets/Faiz_Pitsuwan-Meier.vcf" download>👤 Save contact (vCard)</a>
+        </div>
+      </section>
+
+      <!-- QR -->
+      <section data-tab="qr">
+        <h2>Scan to open this page</h2>
+        <div class="qr">
+          <img src="assets/qr-cv.png" alt="QR code linking to humanismcontributor.github.io/cv">
+          <p class="meta">Opens on the CV · humanismcontributor.github.io/cv</p>
+          <div class="btns" style="justify-content:center">
+            <a class="btn primary" href="assets/qr-cv.png" download="QR_Faiz_Pitsuwan-Meier_CV.png">⬇ Download QR code (PNG)</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>Hosted on GitHub Pages.</footer>
+  </div>
+
+  <script>
+    const GH = "https://github.com/humanismContributor";
+    const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+    // ---- Tabs (hash-based, CV first so QR scans land on it) ----
+    const tabs = [...document.querySelectorAll("section[data-tab]")];
+    function show() {
+      const id = location.hash.slice(1);
+      const target = tabs.find(t => t.dataset.tab === id) ? id : "cv";
+      tabs.forEach(t => t.classList.toggle("active", t.dataset.tab === target));
+      document.querySelectorAll("nav a").forEach(a =>
+        a.getAttribute("href") === "#" + target ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
+      if (target === "portfolio") loadRepos();
+    }
+    addEventListener("hashchange", () => { show(); scrollTo({ top: 0 }); });
+    show();
+
+    // ---- Certificates ----
+    const CERTS = [
+      ["Employment references", "Front Office Agent", "Kempinski Palace Engelberg", "Aug 2024 – Jul 2025", "Arbeitszeugnis (German), 2 pages", "Kempinski_Palace_Engelberg_Arbeitszeugnis.pdf", ["kempinski_1", "kempinski_2"]],
+      ["Employment references", "Housekeeping Trainee", "Baur au Lac, Zürich", "Jun 2023 – Dec 2023", "Zeugnis (German), 2 pages", "Baur_au_Lac_Zeugnis.pdf", ["baur_1", "baur_2"]],
+      ["Employment references", "Service Employee, Hotel Reuti", "Bergbahnen Meiringen-Hasliberg AG", "Nov 2022 – Jan 2023", "Arbeitszeugnis (German), 1 page", "Bergbahnen_Meiringen-Hasliberg_Arbeitszeugnis.pdf", ["bergbahnen_1"]],
+      ["Employment references", "F&B Intern", "The Capra, Saas-Fee", "Dec 2021 – Apr 2022", "Zeugnis (German), 2 pages", "The_Capra_Saas-Fee_Zeugnis.pdf", ["the_1", "the_2"]],
+      ["Education & leadership", "Major in Sustainable Management (128 hours)", "EHL Swiss School of Tourism and Hospitality", "May 2024", "Certificate of Achievement (English): management, ecology, regional anchoring, social, finance & market", "EHL_Sustainable_Management_Certificate.pdf", ["ehl_1"]],
+      ["Education & leadership", "Sergeant – 19 weeks practical service as group leader", "Swiss Armed Forces", "Jun 2022 – Nov 2022", "Service confirmation (French) listing leadership competencies", "Swiss_Armed_Forces_Sergeant_Service.pdf", ["swiss_1"]],
+      ["Education & leadership", "Leadership module attestations", "Swiss Association for Leadership Training SVF-ASFC", "Oct 2022", "Team leadership, conflict management, personnel management and oral communication (French), 4 pages", "SVF-ASFC_Leadership_Modules.pdf", ["svf-asfc_1", "svf-asfc_2", "svf-asfc_3", "svf-asfc_4"]],
+    ];
+    let lastSec = null;
+    document.getElementById("certs").innerHTML = CERTS.map(([sec, title, issuer, period, summary, pdf, pages]) => {
+      const head = sec !== lastSec ? `<h3>${esc(sec)}</h3>` : "";
+      lastSec = sec;
+      return `${head}<div class="card">
+        <div class="row"><b>${esc(title)}</b><span class="meta">${esc(period)}</span></div>
+        <div>${esc(issuer)}</div>
+        <p class="meta">${esc(summary)}</p>
+        <details><summary>View document</summary><div class="pages">${pages.map((p, i) =>
+          `<img src="assets/certificates/previews/${p}.jpg" alt="${esc(title)}, page ${i + 1}" loading="lazy">`).join("")}</div></details>
+        <div class="btns"><a class="btn" href="assets/certificates/${pdf}" download>⬇ Download PDF</a></div>
+      </div>`;
+    }).join("");
+
+    // ---- Featured projects ----
+    const FEATURED = [
+      { name: "Xylella Watch", stack: "Python · Streamlit · GitHub Actions · Claude API",
+        text: "Flags olive-grove decline in Sentinel-2 imagery across 7 Mediterranean regions alongside official outbreak records, refreshed by automated weekly pipelines. Validated against about 1.5 million field samples, with results reported openly: strong detection in some areas, weak in others.",
+        links: { "Live app": "https://xylella-tracker.streamlit.app/", "Code": `${GH}/Xylella-Fastidiosa-tracker` } },
+      { name: "AI Adoption Analysis", stack: "R · tidyverse · ggplot2",
+        text: "145,000 records across 10 countries and 8 industries, with visual dashboards; showed the dataset was synthetic from its uniform distributions.",
+        links: { "Video": "https://youtu.be/SHCFpWCBgis", "R script": `${GH}/humanismContributor.github.io/blob/main/projects/ai-adoption/analysis.R`, "Charts": "https://humanismcontributor.github.io/" } },
+      { name: "Hotel Guest Analytics", stack: "Python · seaborn",
+        text: "Built for Stanford's Code in Place (2021): segments hotel guests by revenue value per canton and exports KPI reports, charts and an interactive guest lookup.",
+        links: { "Video": "https://www.youtube.com/watch?v=Ev7-rtgOqd0", "Code": `${GH}/humanismContributor.github.io/blob/main/projects/hotel-guests/project.py` } },
+    ];
+    document.getElementById("featured").innerHTML = FEATURED.map(p => `<div class="card">
+      <b>${esc(p.name)}</b><div class="meta">${esc(p.stack)}</div>
+      <p>${esc(p.text)}</p>
+      <div class="links">${Object.entries(p.links).map(([l, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(l)} ↗</a>`).join("")}</div>
+    </div>`).join("");
+
+    // ---- Public repositories (live from the GitHub API) ----
+    let reposLoaded = false;
+    async function loadRepos() {
+      if (reposLoaded) return; reposLoaded = true;
+      const box = document.getElementById("repos");
+      try {
+        const r = await fetch("https://api.github.com/users/humanismContributor/repos?per_page=100&sort=updated");
+        if (!r.ok) throw new Error(r.status);
+        const repos = (await r.json()).filter(x => !x.fork);
+        box.innerHTML = repos.map(x => `<div class="card">
+          <b><a href="${esc(x.html_url)}" target="_blank" rel="noopener">${esc(x.name)}</a></b>
+          ${x.description ? `<p>${esc(x.description)}</p>` : ""}
+          <div class="meta">${[x.language, `★ ${x.stargazers_count}`, `updated ${x.pushed_at.slice(0, 10)}`].filter(Boolean).map(esc).join(" · ")}</div>
+          ${x.homepage ? `<div class="links"><a href="${esc(x.homepage)}" target="_blank" rel="noopener">Live site ↗</a></div>` : ""}
+        </div>`).join("") || `<p class="meta">No public repositories yet.</p>`;
+      } catch {
+        box.innerHTML = `<p class="meta">Couldn't load repositories right now. See them on <a href="${GH}">GitHub</a>.</p>`;
+      }
+    }
+  </script>
+</body>
+</html>
